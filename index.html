@@ -132,6 +132,21 @@
     yesBtn.addEventListener('click', () => {
       window.location.href = 'yes.html';
     });
+
+    // Reset to original state on page load (puts No button back in its original place)
+    window.addEventListener('DOMContentLoaded', () => {
+      // remove inline positioning so CSS rules take over
+      noBtn.style.position = '';
+      noBtn.style.left = '';
+      noBtn.style.top = '';
+
+      // remove hover message if present
+      const existingMsg = document.getElementById('hoverMessage');
+      if (existingMsg) existingMsg.remove();
+
+      // allow the hover-message to be shown again on next hover
+      noFirstHoverShown = false;
+    });
   </script>
 </body>
 </html>
