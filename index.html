@@ -105,7 +105,7 @@
     let noFirstHoverShown = false;
 
     noBtn.addEventListener('mouseover', () => {
-      // show the one-time message
+      // show the one-time message and keep it visible permanently
       if (!noFirstHoverShown) {
         noFirstHoverShown = true;
         const msg = document.createElement('div');
@@ -113,10 +113,7 @@
         msg.textContent = "The no button is lowkirkenuinely kinda shy, maybe it doesnt wanna be pressed. 🤔";
         document.body.appendChild(msg);
         requestAnimationFrame(() => msg.classList.add('show'));
-        setTimeout(() => {
-          msg.classList.remove('show');
-          setTimeout(() => msg.remove(), 300);
-        }, 4000);
+        // message will remain in the DOM and stay visible
       }
 
       noBtn.style.position = 'fixed';
@@ -133,7 +130,6 @@
 
     // Redirect on Yes click
     yesBtn.addEventListener('click', () => {
-      // Replace this with your happy image / page
       window.location.href = 'yes.html';
     });
   </script>
